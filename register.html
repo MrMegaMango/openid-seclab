@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Login</title>
+    <style>
+      #login_error {
+        color: red;
+        font-size: 2em;
+        font-weight: bold;
+        display: none;
+      }
+    </style>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const errDiv = document.getElementById('register_error');
+        const urlParams = new URLSearchParams(window.location.search);
+        const err = urlParams.get('error');
+        if (err != null && err !== "") {
+          errDiv.style.display = 'block';
+          errDiv.innerText = err;
+        }
+      });
+    </script>
+  </head>
+  <body>
+    <form method="POST" action="/register">
+      <div id="register_error"></div>
+      <p><label name="username">Username: <input type="text" name="username"></label>
+      <p><label name="password">Password: <input type="password" name="password"></label>
+      <p><input type="submit" value="Register">
+    </form>
+  </body>
+</html>
